@@ -1,0 +1,92 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<style>
+body, div {
+    margin: 0;
+    padding: 0;
+}
+.button {
+    display: inline-block;
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+#a {
+    background: red;
+}
+#b {
+    background: yellow;
+}
+</style>
+
+<div id="a" class="button" action="send" data='{"channelID": "b", "opID":"up"}'></div>
+<div id="b" class="button" action="send" data='{"channelID": "b", "opID":"down"}'></div>
+
+<script src="https://cdn.pubnub.com/pubnub-dev.js"></script>
+<script>
+
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+// Document Click Actions
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+function $(id) { return document.getElementById(id) }
+function bind( type, el, fun ) {
+    type.split(",").forEach(function(etype){
+        var rap = function(e) {
+            if (!e) e = window.event;
+            if (!fun(e)) {
+                e.cancelBubble = true;
+                e.preventDefault  && e.preventDefault();
+                e.stopPropagation && e.stopPropagation();
+            }
+        };
+
+        if ( el.addEventListener ) el.addEventListener( etype, rap, false );
+        else if ( el.attachEvent ) el.attachEvent( "on" + etype, rap );
+        else  el[ "on" + etype ] = rap;
+    });
+}
+
+PUBNUB.events.bind( "click.send", function(data) {
+    var msg = JSON.parse(data);
+    pubnub.publish({ channel: "battroborg", message: msg });
+} );
+PUBNUB.events.bind( "click.send", function(data) {
+    var msg = JSON.parse(data);
+    pubnub.publish({ channel: "battroborg", message: msg });
+} );
+
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+// Pubnbu
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+var pubnub = PUBNUB({
+    no_wait_for_pending: true,
+    publish_key:'demo-36',
+    subscribe_key:'demo-36'
+});
+
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+// Document Click Actions
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+bind( "mousedown,touchstart", document, function(e) {
+    var target = e.target
+    ,   data   = ""
+    ,   action = "";
+
+    while (target && target.getAttribute) {
+        data   = target.getAttribute("data");
+        action = target.getAttribute("action");
+        target = target.parentNode;
+
+        if (!action) continue;
+
+        console.log( "click." + action, data );
+        PUBNUB.events.fire( "click." + action, data );
+        return false;
+    }
+
+    return false;
+
+} );
+</script>
