@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ninja-turtles" translatesAutoresizingMaskIntoConstraints="NO" id="O80-gt-O9W">
+                                <rect key="frame" x="11" y="175" width="578" height="250"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="O80-gt-O9W" secondAttribute="height" multiplier="2.31:1" id="FyY-IR-Ncz"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="800" id="grZ-XU-DSh"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jSC-Wc-n8j">
+                                <rect key="frame" x="163" y="28" width="275" height="28"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                        <real key="value" value="0.20000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                        <size key="value" width="0.0" height="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="0d1-ez-tRy">
+                                <rect key="frame" x="163" y="28" width="275" height="29"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="Pnd-hM-IGN"/>
+                                    <constraint firstAttribute="width" constant="275" id="ugE-Ai-rOd"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="First player"/>
+                                    <segment title="Second player"/>
+                                </segments>
+                                <connections>
+                                    <action selector="handlePlayerSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="lH4-SS-AJQ"/>
+                                </connections>
+                            </segmentedControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fIE-E1-u8d">
+                                <rect key="frame" x="467" y="529" width="133" height="100"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="qDt-bB-liM"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GOg-yI-IoV">
+                                <rect key="frame" x="234" y="529" width="133" height="100"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="6JY-Sk-gjL"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="id3-dj-D3C">
+                                <rect key="frame" x="0.0" y="529" width="134" height="100"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="jza-Jp-WXZ"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Onx-sY-Kfd">
+                                <rect key="frame" x="134" y="529" width="100" height="100"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.1137254902" green="0.6588235294" blue="0.20737329879999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="eZg-gX-18F"/>
+                                    <constraint firstAttribute="height" constant="100" id="h5h-U7-nZk"/>
+                                </constraints>
+                                <state key="normal" title="UP">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                        <real key="value" value="0.20000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                        <size key="value" width="0.0" height="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="handleUpButtonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OoT-U3-KhC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V5g-GJ-6OR">
+                                <rect key="frame" x="367" y="529" width="100" height="100"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="gVy-8i-wd9"/>
+                                    <constraint firstAttribute="height" constant="100" id="gju-Sm-TrA"/>
+                                </constraints>
+                                <state key="normal" title="DOWN">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                        <real key="value" value="0.20000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                        <size key="value" width="0.0" height="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="handleDownButtonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="G3c-3k-rVa"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" red="0.4039215686" green="0.61960784310000006" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="O80-gt-O9W" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="4E4-DJ-QIL"/>
+                            <constraint firstItem="fIE-E1-u8d" firstAttribute="leading" secondItem="V5g-GJ-6OR" secondAttribute="trailing" id="7Xg-HA-c9O"/>
+                            <constraint firstAttribute="trailing" secondItem="fIE-E1-u8d" secondAttribute="trailing" id="7YG-vM-jP1"/>
+                            <constraint firstItem="V5g-GJ-6OR" firstAttribute="centerY" secondItem="fIE-E1-u8d" secondAttribute="centerY" id="ElY-pK-0qn"/>
+                            <constraint firstItem="Onx-sY-Kfd" firstAttribute="leading" secondItem="id3-dj-D3C" secondAttribute="trailing" id="JN1-NG-Iuw"/>
+                            <constraint firstItem="fIE-E1-u8d" firstAttribute="width" secondItem="id3-dj-D3C" secondAttribute="width" id="Nrw-bq-Yjq"/>
+                            <constraint firstItem="jSC-Wc-n8j" firstAttribute="width" secondItem="0d1-ez-tRy" secondAttribute="width" id="Ot4-Eb-vQV"/>
+                            <constraint firstItem="jSC-Wc-n8j" firstAttribute="height" secondItem="0d1-ez-tRy" secondAttribute="height" id="Qcy-fa-Sab"/>
+                            <constraint firstItem="GOg-yI-IoV" firstAttribute="width" secondItem="id3-dj-D3C" secondAttribute="width" id="Rka-KX-AbR"/>
+                            <constraint firstItem="jSC-Wc-n8j" firstAttribute="centerX" secondItem="0d1-ez-tRy" secondAttribute="centerX" id="RrF-JX-knq"/>
+                            <constraint firstItem="O80-gt-O9W" firstAttribute="height" relation="lessThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="height" id="V3R-ox-rM1"/>
+                            <constraint firstItem="0d1-ez-tRy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="YYR-5g-tO3"/>
+                            <constraint firstItem="O80-gt-O9W" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZDx-gX-zZW"/>
+                            <constraint firstItem="jSC-Wc-n8j" firstAttribute="centerY" secondItem="0d1-ez-tRy" secondAttribute="centerY" id="acG-dH-mc9"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fIE-E1-u8d" secondAttribute="bottom" constant="-29" id="d4E-hl-12W"/>
+                            <constraint firstItem="0d1-ez-tRy" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="fXG-k3-peS"/>
+                            <constraint firstItem="V5g-GJ-6OR" firstAttribute="leading" secondItem="GOg-yI-IoV" secondAttribute="trailing" id="fow-33-eus"/>
+                            <constraint firstItem="GOg-yI-IoV" firstAttribute="leading" secondItem="Onx-sY-Kfd" secondAttribute="trailing" id="n6R-NM-Qe4"/>
+                            <constraint firstItem="O80-gt-O9W" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="oD1-to-KCQ"/>
+                            <constraint firstItem="id3-dj-D3C" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="rCL-3Q-aXZ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="id3-dj-D3C" secondAttribute="bottom" constant="-29" id="tel-rz-Sl2"/>
+                            <constraint firstItem="GOg-yI-IoV" firstAttribute="centerY" secondItem="Onx-sY-Kfd" secondAttribute="centerY" id="wsD-r1-i9U"/>
+                            <constraint firstItem="Onx-sY-Kfd" firstAttribute="centerY" secondItem="id3-dj-D3C" secondAttribute="centerY" id="yYT-jT-371"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="4E4-DJ-QIL"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="client" destination="aQq-Ye-K1a" id="S2g-sk-R29"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <customObject id="aQq-Ye-K1a" customClass="BTBSparController"/>
+            </objects>
+            <point key="canvasLocation" x="850" y="658"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ninja-turtles" width="578" height="250"/>
+    </resources>
+</document>
