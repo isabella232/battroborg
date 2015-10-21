@@ -38,15 +38,15 @@ def callback(message, channel):
 		
 		if opID == "up":
 			if channelID == "a":
-				rtn = call(["irsend", "SEND_ONCE", "/home/pi/lircd.conf", "KEY_C"])
+				rtn = thread.start_new_thread(call(["irsend", "SEND_ONCE", "/home/pi/lircd.conf", "KEY_C"]))
 			elif channelID == "b":
-				rtn = call(["irsend", "SEND_ONCE", "/home/pi/lircd.conf", "KEY_Y"])
+				rtn = thread.start_new_thread(call(["irsend", "SEND_ONCE", "/home/pi/lircd.conf", "KEY_Y"]))
 
                 if opID == "down":
                         if channelID == "a":
-                                rtn = call(["irsend", "SEND_ONCE", "/home/pi/lircd.conf", "KEY_B"])
+                                rtn = thread.start_new_thread(call(["irsend", "SEND_ONCE", "/home/pi/lircd.conf", "KEY_B"]))
                         elif channelID == "b":
-                                rtn = call(["irsend", "SEND_ONCE", "/home/pi/lircd.conf", "KEY_Z"])
+                                rtn = thread.start_new_thread(call(["irsend", "SEND_ONCE", "/home/pi/lircd.conf", "KEY_Z"]))
 
 
         	print "message received for turtlepower: " + str(rtn) + " " + message['channelID'] + ":" + message["opID"]
