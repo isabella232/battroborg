@@ -38,18 +38,30 @@ def callback(message, channel):
 		
 		if opID == "up":
 			if channelID == "a":
-				rtn = thread.start_new_thread(call(["irsend", "SEND_ONCE", "/home/pi/lircd.conf", "KEY_C"]))
+				rtn = thread.start_new_thread(a_up, ())
 			elif channelID == "b":
-				rtn = thread.start_new_thread(call(["irsend", "SEND_ONCE", "/home/pi/lircd.conf", "KEY_Y"]))
+				rtn = thread.start_new_thread(b_up, ())
 
                 if opID == "down":
                         if channelID == "a":
-                                rtn = thread.start_new_thread(call(["irsend", "SEND_ONCE", "/home/pi/lircd.conf", "KEY_B"]))
+                                rtn = thread.start_new_thread(a_down, ())
                         elif channelID == "b":
-                                rtn = thread.start_new_thread(call(["irsend", "SEND_ONCE", "/home/pi/lircd.conf", "KEY_Z"]))
+                                rtn = thread.start_new_thread(b_down, ())
 
 
-        	thread.start_new_thread(print "message received for turtlepower: " + str(rtn) + " " + message['channelID'] + ":" + message["opID"])
+        	print "message received for turtlepower: " + str(rtn) + " " + message['channelID'] + ":" + message["opID"]
+
+def a_up():
+    call(["irsend", "SEND_ONCE", "/home/pi/lircd.conf", "KEY_C"])
+
+def b_up():
+    call(["irsend", "SEND_ONCE", "/home/pi/lircd.conf", "KEY_Y"])    
+
+def a_down():
+    call(["irsend", "SEND_ONCE", "/home/pi/lircd.conf", "KEY_B"])
+
+def b_down():
+    call(["irsend", "SEND_ONCE", "/home/pi/lircd.conf", "KEY_Z"])    
 
 
 def error(message):
