@@ -49,7 +49,7 @@ def callback(message, channel):
                                 rtn = thread.start_new_thread(call(["irsend", "SEND_ONCE", "/home/pi/lircd.conf", "KEY_Z"]))
 
 
-        	print "message received for turtlepower: " + str(rtn) + " " + message['channelID'] + ":" + message["opID"]
+        	thread.start_new_thread(print "message received for turtlepower: " + str(rtn) + " " + message['channelID'] + ":" + message["opID"])
 
 
 def error(message):
@@ -78,14 +78,3 @@ def pnSubscribe():
 #     print "Error: unable to start Subscribe thread"
 
 pnSubscribe()
-
-def startCycling():
-    while (True):
-
-        for x in range(0,7) :
-
-            if (leds[x]['proc'] == False):
-                try:
-                    thread.start_new_thread( cycleLEDs, (x,) )
-                except:
-                    print "Error: unable to start LED thread"
